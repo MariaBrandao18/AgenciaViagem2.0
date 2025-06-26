@@ -135,6 +135,16 @@ public class AdicionarPacotePage extends JFrame {
 				 if (!validarCampos(nome1, destino1, duracao1, preco1)) {
 		                return;
 		            }
+				if (!duracao1.matches("^[0-9]+$")) {
+			            JOptionPane.showMessageDialog(null, "Duração inválida. Use um número válido");
+			            return;
+			            }
+				 
+				 if (!preco1.matches("^[0-9.]+$")) {
+			            JOptionPane.showMessageDialog(null, "Preço inválido. Use um número válido");
+			            return;
+			            }
+				 
 				 PacoteViagem pacote = null;
 				 if (rdbtnLuxo.isSelected()) {
 					 pacote = new PacoteLuxuoso();
