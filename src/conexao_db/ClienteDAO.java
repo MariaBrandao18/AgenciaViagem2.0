@@ -239,5 +239,20 @@ public class ClienteDAO {
             }
         }
     }
+    
+    public static boolean clientePossuiPacote(String documento) throws SQLException {
+	    String sql = "SELECT cp.* FROM clientes_pacotes cp " +
+	                 "JOIN clientes c ON cp.cliente_id = c.cliente_id " +
+	                 "WHERE c.cpf = ? OR c.passaporte = ?";
+
+	    try (Connection conn = Conexao.conectar();
+	         PreparedStatement stmt = conn.prepareStatement(sql)) {
+	        
+	        stmt.setString(1, documento);
+	        stmt.setString(2, documento);
+	        ResultSet rs = stmt.executeQuery();
+	        return rs.next();
+	    }
+	}
 
 }
