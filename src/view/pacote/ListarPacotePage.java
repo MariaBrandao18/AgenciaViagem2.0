@@ -65,7 +65,7 @@ public class ListarPacotePage extends JFrame {
 		        "Nenhum pacote cadastrado.",
 		        "Aviso",
 		        JOptionPane.WARNING_MESSAGE);
-		    comboBox.setEnabled(false); //desativa a comboBox caso não haja clientes
+		    comboBox.setEnabled(false); //desativa a comboBox caso não haja pacote
 		} else {
 		    for (PacoteViagem pacote : pacotes) {
 		        comboBox.addItem(pacote.getNome());
@@ -78,7 +78,7 @@ public class ListarPacotePage extends JFrame {
 		voltarBtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new ClientePage();
+				new PacotePage();
 				setVisible(false);
 			}
 			
