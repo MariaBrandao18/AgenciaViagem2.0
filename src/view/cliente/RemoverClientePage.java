@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import conexao_db.ClienteDAO;
+import conexao_db.PacoteDAO;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -46,6 +47,13 @@ public class RemoverClientePage extends JFrame {
 				
 				if (ClienteDAO.buscarCliente(documento1) == null) {
 				    JOptionPane.showMessageDialog(null, "Cliente não encontrado.", "Aviso", JOptionPane.WARNING_MESSAGE);
+				}
+				if (ClienteDAO.clientePossuiPacote(documento1)) {
+				    JOptionPane.showMessageDialog(null, 
+				        "Este cliente está associado a um pacote e não pode ser removido.", 
+				        "Remoção bloqueada", 
+				        JOptionPane.ERROR_MESSAGE);
+				    return;
 				} else {
 				int confirmacao = JOptionPane.showConfirmDialog(null, 
 			        		"Tem certeza que deseja remover este cliente?", 
