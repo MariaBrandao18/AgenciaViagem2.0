@@ -33,14 +33,9 @@ Após o cadastro, o cliente pode escolher entre diversos **pacotes de viagens**,
   - 🏕️ **Aventura**: inclui trilhas e passeios de jipe 
   - 🏛️ **Cultural**: visitas a museus, centros históricos e experiências gastronômicas
 
-O cliente pode escolher **mais de um pacote**, e também optar por **serviços adicionais** (não obrigatórios), como:
+O cliente pode escolher **mais de um pacote**, e também optar por **serviços adicionais** (não obrigatórios).
 
-- 🚐 Traslado  
-- 🗺️ Passeios  
-- 🚘 Motorista particular  
-- 🚗 Aluguel de carro  
-
-> 💡 *Os valores dos serviços adicionais variam conforme a escolha do usuário.*
+> 💡 *Os valores dos serviços adicionais são somados com o preço do pacote.*
 
 ---
 
