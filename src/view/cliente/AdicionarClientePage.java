@@ -36,12 +36,29 @@ public class AdicionarClientePage extends JFrame {
 	
 	private boolean validarCampos(String nome, String email, String telefone, String documento) {
 	    if (nome.isEmpty() || email.isEmpty() || telefone.isEmpty() || documento.isEmpty()) {
-	        JOptionPane.showMessageDialog(this, 
-	            "Todos os campos (Nome, E-mail, Telefone, Documento) são obrigatórios.", 
-	            "Campos obrigatórios", 
+	        JOptionPane.showMessageDialog(this,
+	            "Todos os campos (Nome, E-mail, Telefone, Documento) são obrigatórios.",
+	            "Campos obrigatórios",
 	            JOptionPane.WARNING_MESSAGE);
 	        return false;
 	    }
+
+	    if (!telefone.matches("\\d+")) {
+	        JOptionPane.showMessageDialog(this,
+	            "O campo telefone não pode conter letras.",
+	            "Erro",
+	            JOptionPane.ERROR_MESSAGE);
+	        return false;
+	    }
+
+	    if (!documento.matches("\\d{11}") && !documento.matches("[A-Za-z]{2}\\d+")) {
+	        JOptionPane.showMessageDialog(this,
+	            "O documento deve ser um CPF (11 dígitos) ou um Passaporte (2 letras + números).",
+	            "Erro no Documento",
+	            JOptionPane.ERROR_MESSAGE);
+	        return false;
+	    }
+
 	    return true;
 	}
 	
@@ -130,11 +147,16 @@ public class AdicionarClientePage extends JFrame {
 		            String email1 = email.getText().trim();
 		            String telefone1 = telefone.getText().trim();
 		            String documento1 = documento.getText().trim();
-
+		            
 		            if (!validarCampos(nome1, email1, telefone1, documento1)) {
 		                return;
 		            }
 
+		            if (!email1.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
+		            JOptionPane.showMessageDialog(null, "E-mail inválido. Use o formato nome@dominio.com");
+		            return;
+		            }
+		            
 		            Cliente cliente = null;
 		            if (rdbtnNacional.isSelected()) {
 		                cliente = new ClienteNacional();
