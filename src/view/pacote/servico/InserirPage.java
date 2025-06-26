@@ -5,6 +5,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -12,16 +13,18 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-import conexao_db.ServicoDAO;
+
 import classes.ServicoAdicional;
+import conexao_db.ServicoDAO;
 import view.pacote.PacotePage;
+import view.pacote.ServicoPage;
 public class InserirPage extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField nome;
 	private JTextField preco;
 	private JTextField descricao;
-	private PacotePage TelaAnterior;
+	private ServicoPage TelaAnterior;
 	/**
 	 * Launch the application.
 	 */
@@ -135,11 +138,8 @@ public class InserirPage extends JFrame {
 		            ServicoAdicional servico = new ServicoAdicional(nome1, preco1, descricao1);
 		            ServicoDAO.inserirServico(servico);
 		            JOptionPane.showMessageDialog(null, "Serviço adicionado com sucesso!");
-		            dispose();
-		            if (TelaAnterior != null) {
-		                TelaAnterior.setVisible(true);
-		                setVisible(false);
-		            }
+		            new ServicoPage();
+		            setVisible(false);
 		        } catch (Exception ex) {
 		            ex.printStackTrace();
 		            JOptionPane.showMessageDialog(null,
