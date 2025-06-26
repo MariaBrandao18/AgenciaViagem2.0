@@ -43,8 +43,8 @@ O cliente pode escolher **mais de um pacote**, e também optar por **serviços a
 
 A área administrativa do sistema oferece funcionalidades para a **gestão de dados**, como:
 
-- **Listar, buscar e excluir** clientes e pacotes  
-  - ❗ Pacotes **só podem ser excluídos** se **não houver clientes associados**
+- **Listar, buscar e excluir** clientes, pacotes e serviços
+  - ❗ Pacotes **só podem ser excluídos** se **não houver clientes associados** e **virse e versa**
   - ✅ Para listar pacotes, é necessário que o cadastro contenha **preço** e **destino**
 
 - **Análise de dados**:
